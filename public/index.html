@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cottage Booking Service</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏡 Cottage Booking Service</h1>
+            <p>Find your perfect lakeside cottage getaway</p>
+        </header>
+
+        <div class="booking-form">
+            <h2>Booking Request</h2>
+            
+            <div class="form-group">
+                <label for="bookerName">Your Name:</label>
+                <input type="text" id="bookerName" name="bookerName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="numPeople">Number of People:</label>
+                    <input type="number" id="numPeople" name="numPeople" min="1" max="20" placeholder="e.g., 4" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="numBedrooms">Number of Bedrooms:</label>
+                    <input type="number" id="numBedrooms" name="numBedrooms" min="1" max="10" placeholder="e.g., 2" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="maxDistLake">Max Distance to Lake (meters):</label>
+                    <input type="number" id="maxDistLake" name="maxDistLake" min="0" placeholder="e.g., 500" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">Nearest City:</label>
+                    <input type="text" id="city" name="city" placeholder="e.g., Jyväskylä" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="maxDistCity">Max Distance to City (meters):</label>
+                    <input type="number" id="maxDistCity" name="maxDistCity" min="0" placeholder="e.g., 10000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="numDays">Number of Days:</label>
+                    <input type="number" id="numDays" name="numDays" min="1" placeholder="e.g., 7" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="startDate">Starting Date:</label>
+                    <input type="date" id="startDate" name="startDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dateShift">Date Flexibility (+/- days):</label>
+                    <input type="number" id="dateShift" name="dateShift" min="0" max="30" placeholder="e.g., 3" required>
+                </div>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="searchCottages()">Search Available Cottages</button>
+        </div>
+
+        <div id="results" class="results-section" style="display: none;">
+            <h2>Available Cottages</h2>
+            <div id="cottageList" class="cottage-list">
+                <!-- Results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
