@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.TIES4520.onto.demo.model.BookingSuggestion;
 import com.TIES4520.onto.demo.model.Cottage;
 import com.TIES4520.onto.demo.service.CottageService;
 
@@ -51,23 +52,23 @@ public class CottageController {
         return ResponseEntity.ok().build();
     }
 
-    // Optional: availability search (dates as dd.MM.yyyy to match your task doc)
-    @GetMapping("/search-availability")
-    public ResponseEntity<List<Cottage>> searchAvailability(
+    @GetMapping("/suggestions")
+    public ResponseEntity<List<BookingSuggestion>> suggestions(
+    		@RequestParam(required = false) String bookerName,
             @RequestParam int requiredPlaces,
             @RequestParam int requiredBedrooms,
             @RequestParam int maxLakeDistanceMeters,
             @RequestParam(required = false) String city,
             @RequestParam int maxCityDistanceMeters,
-            @RequestParam String startDay,           // dd.MM.yyyy
-            @RequestParam int requiredDays           // nights
+            @RequestParam String startDay,     // dd.MM.yyyy
+            @RequestParam int requiredDays,    // nights
+            @RequestParam int maxStartShiftDays
     ) {
-        DateTimeFormatter IN = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        LocalDate s = LocalDate.parse(startDay, IN);
-        LocalDate e = s.plusDays(requiredDays);
-        var results = service.searchAvailable(
+        var results = service.searchSuggestions(
+                bookerName,
                 requiredPlaces, requiredBedrooms, maxLakeDistanceMeters,
-                city, maxCityDistanceMeters, s, e
+                city, maxCityDistanceMeters,
+                startDay, requiredDays, maxStartShiftDays
         );
         return ResponseEntity.ok(results);
     }

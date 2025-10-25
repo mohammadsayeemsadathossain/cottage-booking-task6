@@ -14,6 +14,8 @@ import org.eclipse.rdf4j.repository.sparql.SPARQLRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.TIES4520.onto.demo.model.Booking;
+import com.TIES4520.onto.demo.model.BookingSuggestion;
 import com.TIES4520.onto.demo.model.Cottage;
 
 @Service
@@ -125,50 +127,73 @@ public class CottageService {
         }
     }
 
-	public List<Cottage> searchAvailable(int minPlaces, int minBedrooms, int maxLakeMeters,
-            String cityEq, int maxCityMeters,
-            LocalDate start, LocalDate end) {
-		String cityFilter = (cityEq != null && !cityEq.isBlank())
-				? "FILTER (lcase(str(?cityName)) = \"" + esc(cityEq.toLowerCase()) + "\")\n" : "";
-		String s = start.toString();
-		String e = end.toString();
-		
-		String sparql = pfx() + "SELECT ?c ?cid ?addr ?img ?cap ?beds ?lake ?cityName ?cityDist WHERE {\n" +
-			"  ?c a :Cottage ; :cottageID ?cid ; :address ?addr ; :imageURL ?img ;\n" +
-			"     :capacity ?cap ; :numberOfBedrooms ?beds ; :distanceToLake ?lake ; :nearestCity ?city .\n" +
-			"  ?city :cityName ?cityName ; :distanceToCity ?cityDist .\n" +
-			"  FILTER(?cap >= " + minPlaces + ")\n" +
-			"  FILTER(?beds >= " + minBedrooms + ")\n" +
-			"  FILTER(?lake <= " + maxLakeMeters + ")\n" +
-			cityFilter + "  FILTER(?cityDist <= " + maxCityMeters + ")\n" +
-			"  FILTER NOT EXISTS {\n" +
-			"    ?c :hasBooking ?bk . ?bk :startDate ?bS ; :endDate ?bE .\n" +
-			"    FILTER( ?bS < xsd:date(\"" + e + "\") && ?bE > xsd:date(\"" + s + "\") )\n" +
-			"  }\n" +
-			"}";
-		
-		Repository repo = getrepo();
-		try (RepositoryConnection conn = repo.getConnection()) {
-			TupleQuery q = conn.prepareTupleQuery(QueryLanguage.SPARQL, sparql);
-			try (TupleQueryResult rs = q.evaluate()) {
-				List<Cottage> out = new ArrayList<>();
-				while (rs.hasNext()) {
-					BindingSet b = rs.next();
-					Cottage x = new Cottage();
-					x.setIri(b.getValue("c").stringValue());
-					x.setCottageID(s(b,"cid"));
-					x.setAddress(s(b,"addr"));
-					x.setImageURL(s(b,"img"));
-					x.setCapacity(i(b,"cap"));
-					x.setNumberOfBedrooms(i(b,"beds"));
-					x.setDistanceToLake(i(b,"lake"));
-					x.setCityName(s(b,"cityName"));
-					x.setDistanceToCity(i(b,"cityDist"));
-					out.add(x);
-				}
-				return out;
-			}
-		}
+	public List<BookingSuggestion> searchSuggestions(
+	        String bookerName,
+	        int requiredPlaces,
+	        int requiredBedrooms,
+	        int maxLakeDistanceMeters,
+	        String city,
+	        int maxCityDistanceMeters,
+	        String startDay_ddMMyyyy,
+	        int requiredDays,
+	        int maxStartShiftDays
+	) {
+	    java.time.format.DateTimeFormatter IN = java.time.format.DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
+	    java.time.LocalDate baseStart = java.time.LocalDate.parse(startDay_ddMMyyyy, IN);
+	    List<BookingSuggestion> out = new ArrayList<>();
+
+	    // Iterate over all shifts: -maxShift ... +maxShift
+	    for (int shift = -maxStartShiftDays; shift <= maxStartShiftDays; shift++) {
+	        java.time.LocalDate s = baseStart.plusDays(shift);
+	        java.time.LocalDate e = s.plusDays(requiredDays);
+	        String sStr = s.toString(); // yyyy-MM-dd
+	        String eStr = e.toString();
+
+	        String cityFilter = (city != null && !city.isBlank())
+	                ? "FILTER (lcase(str(?cityName)) = \"" + esc(city.toLowerCase()) + "\")\n" : "";
+
+	        // Similar to searchAvailable() but returns the columns we need and filters out overlaps
+	        String sparql = pfx() + 
+	            "SELECT ?c ?cid ?addr ?img ?cap ?beds ?lake ?cityName ?cityDist WHERE {\n" +
+	            "  ?c a :Cottage ; :cottageID ?cid ; :address ?addr ; :imageURL ?img ;\n" +
+	            "     :capacity ?cap ; :numberOfBedrooms ?beds ; :distanceToLake ?lake ; :nearestCity ?city .\n" +
+	            "  ?city :cityName ?cityName ; :distanceToCity ?cityDist .\n" +
+	            "  FILTER(?cap >= " + requiredPlaces + ")\n" +
+	            "  FILTER(?beds >= " + requiredBedrooms + ")\n" +
+	            "  FILTER(?lake <= " + maxLakeDistanceMeters + ")\n" +
+	            cityFilter +
+	            "  FILTER(?cityDist <= " + maxCityDistanceMeters + ")\n" +
+	            "  FILTER NOT EXISTS {\n" +
+	            "    ?c :hasBooking ?bk . ?bk :startDate ?bS ; :endDate ?bE .\n" +
+	            "    FILTER( ?bS < xsd:date(\"" + eStr + "\") && ?bE > xsd:date(\"" + sStr + "\") )\n" +
+	            "  }\n" +
+	            "}\n";
+
+	        Repository repo = getrepo();
+	        try (RepositoryConnection conn = repo.getConnection()) {
+	            TupleQuery q = conn.prepareTupleQuery(QueryLanguage.SPARQL, sparql);
+	            try (TupleQueryResult rs = q.evaluate()) {
+	                while (rs.hasNext()) {
+	                    BindingSet bs = rs.next();
+	                    BookingSuggestion sug = new BookingSuggestion();
+	                    sug.setBookerName(bookerName);
+	                    sug.setCottageID(s(bs,"cid"));
+	                    sug.setAddress(s(bs,"addr"));
+	                    sug.setImageURL(s(bs,"img"));
+	                    sug.setCapacity(i(bs,"cap"));
+	                    sug.setNumberOfBedrooms(i(bs,"beds"));
+	                    sug.setDistanceToLake(i(bs,"lake"));
+	                    sug.setCityName(s(bs,"cityName"));
+	                    sug.setDistanceToCity(i(bs,"cityDist"));
+	                    sug.setStartDate(sStr);
+	                    sug.setEndDate(eStr);
+	                    out.add(sug);
+	                }
+	            }
+	        }
+	    }
+	    return out;
 	}
     
     private static String s(BindingSet b, String name){
