@@ -1,0 +1,963 @@
+{
+	"info": {
+		"_postman_id": "3dc17b3f-522f-4f80-8c87-f74f96e3bfa5",
+		"name": "task 6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48849907",
+		"_collection_link": "https://nnahid878-8212314.postman.co/workspace/Mushfiqul-lslam-Chowdhury's-Wor~a0fe1e29-f74a-4b14-82c2-a04bd28fcb7f/collection/48849907-3dc17b3f-522f-4f80-8c87-f74f96e3bfa5?action=share&source=collection_link&creator=48849907"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9090/demo/api/cottages",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/demo/api/cottages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"demo",
+						"api",
+						"cottages"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:9090/demo/api/cottages",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/demo/api/cottages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"cottages"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Oct 2025 19:54:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"iri\": \"http://localhost:8080/cottageBooking/data/cottage#Cottage01\",\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000\n    },\n    {\n        \"iri\": \"http://localhost:8080/cottageBooking/data/cottage#Cottage02\",\n        \"cottageID\": \"C002\",\n        \"address\": \"456 Forest Path, Muurame, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage02.jpg\",\n        \"capacity\": 4,\n        \"numberOfBedrooms\": 2,\n        \"distanceToLake\": 200,\n        \"cityName\": \"Muurame\",\n        \"distanceToCity\": 2000\n    },\n    {\n        \"iri\": \"http://localhost:8080/cottageBooking/data/cottage#Cottage03\",\n        \"cottageID\": \"C003\",\n        \"address\": \"789 Mountain View, Laukaa, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage03.jpg\",\n        \"capacity\": 8,\n        \"numberOfBedrooms\": 4,\n        \"distanceToLake\": 100,\n        \"cityName\": \"Laukaa\",\n        \"distanceToCity\": 8000\n    },\n    {\n        \"iri\": \"http://localhost:8080/cottageBooking/data/cottage#Cottage04\",\n        \"cottageID\": \"C004\",\n        \"address\": \"321 Riverside Lane, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage04.jpg\",\n        \"capacity\": 5,\n        \"numberOfBedrooms\": 2,\n        \"distanceToLake\": 20,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 3000\n    },\n    {\n        \"iri\": \"http://localhost:8080/cottageBooking/data/cottage#Cottage05\",\n        \"cottageID\": \"C005\",\n        \"address\": \"654 Sunset Boulevard, Hankasalmi, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage05.jpg\",\n        \"capacity\": 10,\n        \"numberOfBedrooms\": 5,\n        \"distanceToLake\": 500,\n        \"cityName\": \"Hankasalmi\",\n        \"distanceToCity\": 12000\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:9090/demo/api/cottages",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cottageID\": \"C007\",\r\n    \"address\": \"12 Birch Grove, Korpilahti, Finland\",\r\n    \"imageURL\": \"https://example.com/images/cottage06.jpg\",\r\n    \"capacity\": 8,\r\n    \"numberOfBedrooms\": 4,\r\n    \"distanceToLake\": 150,\r\n    \"cityName\": \"Kuopio\",\r\n    \"distanceToCity\": 0\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/demo/api/cottages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"demo",
+						"api",
+						"cottages"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:9090/demo/api/cottages",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cottageID\": \"C007\",\r\n    \"address\": \"12 Birch Grove, Korpilahti, Finland\",\r\n    \"imageURL\": \"https://example.com/images/cottage06.jpg\",\r\n    \"capacity\": 8,\r\n    \"numberOfBedrooms\": 4,\r\n    \"distanceToLake\": 150,\r\n    \"cityName\": \"Kuopio\",\r\n    \"distanceToCity\": 0\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/demo/api/cottages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"cottages"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Oct 2025 20:31:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "http://localhost:9090/demo/api/cottages",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cottageID\": \"C007\",\r\n    \"address\": \"12 Birch Grove, Korpilahti, Finland\",\r\n    \"imageURL\": \"https://example.com/images/cottage06.jpg\",\r\n    \"capacity\": 8,\r\n    \"numberOfBedrooms\": 4,\r\n    \"distanceToLake\": 150,\r\n    \"cityName\": \"Kuopio\",\r\n    \"distanceToCity\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/demo/api/cottages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"demo",
+						"api",
+						"cottages"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:9090/demo/api/cottages",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cottageID\": \"C007\",\r\n    \"address\": \"12 Birch Grove, Korpilahti, Finland\",\r\n    \"imageURL\": \"https://example.com/images/cottage06.jpg\",\r\n    \"capacity\": 8,\r\n    \"numberOfBedrooms\": 4,\r\n    \"distanceToLake\": 150,\r\n    \"cityName\": \"Kuopio\",\r\n    \"distanceToCity\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/demo/api/cottages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"cottages"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Oct 2025 20:40:02 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "http://localhost:9090/demo/api/cottages/C007",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/demo/api/cottages/C007",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"demo",
+						"api",
+						"cottages",
+						"C007"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:9090/demo/api/cottages/C007",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/demo/api/cottages/C007",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"cottages",
+								"C007"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Oct 2025 20:41:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "http://localhost:9090/demo/api/bookings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/demo/api/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"demo",
+						"api",
+						"bookings"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:9090/demo/api/bookings",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/demo/api/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Oct 2025 00:21:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bookingNumber\": \"550e8400-e29b-41d4-a716-446655440000\",\n        \"bookerName\": \"Alice\",\n        \"cottageID\": \"C001\",\n        \"cottageIri\": \"http://localhost:8080/cottageBooking/data/cottage#Cottage01\",\n        \"startDate\": \"2025-11-10\",\n        \"endDate\": \"2025-11-15\",\n        \"numberOfDays\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:9090/demo/api/bookings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"bookerName\": \"Alice\",\r\n  \"cottageID\": \"C003\",\r\n  \"startDay\": \"05.11.2025\",\r\n  \"requiredDays\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/demo/api/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"demo",
+						"api",
+						"bookings"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:9090/demo/api/bookings",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookerName\": \"Alice\",\r\n  \"cottageID\": \"C003\",\r\n  \"startDay\": \"05.11.2025\",\r\n  \"requiredDays\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/demo/api/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Oct 2025 00:29:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bookingNumber\": \"2272e037-f542-4a9d-8d63-6c2fcf9745e9\",\n    \"bookerName\": \"Alice\",\n    \"cottageID\": \"C003\",\n    \"cottageIri\": \"http://localhost:8080/cottageBooking/data/cottage#Cottage03\",\n    \"startDate\": \"2025-11-05\",\n    \"endDate\": \"2025-11-08\",\n    \"numberOfDays\": 0\n}"
+				},
+				{
+					"name": "http://localhost:9090/demo/api/bookings",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookerName\": \"Alice\",\r\n  \"cottageID\": \"C003\",\r\n  \"startDay\": \"05.11.2025\",\r\n  \"requiredDays\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/demo/api/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Oct 2025 00:29:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bookingNumber\": \"2272e037-f542-4a9d-8d63-6c2fcf9745e9\",\n    \"bookerName\": \"Alice\",\n    \"cottageID\": \"C003\",\n    \"cottageIri\": \"http://localhost:8080/cottageBooking/data/cottage#Cottage03\",\n    \"startDate\": \"2025-11-05\",\n    \"endDate\": \"2025-11-08\",\n    \"numberOfDays\": 0\n}"
+				},
+				{
+					"name": "http://localhost:9090/demo/api/bookings",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookerName\": \"Alice\",\r\n  \"cottageID\": \"C003\",\r\n  \"startDay\": \"05.11.2025\",\r\n  \"requiredDays\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/demo/api/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Oct 2025 00:43:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "Cottage C003 is not available for 2025-11-05 to 2025-11-08"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:9090/demo/api/bookings/6aab8828-2dc5-438b-8d4e-63dfacd6f3cf",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/demo/api/bookings/6aab8828-2dc5-438b-8d4e-63dfacd6f3cf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"demo",
+						"api",
+						"bookings",
+						"6aab8828-2dc5-438b-8d4e-63dfacd6f3cf"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:9090/demo/api/bookings/6aab8828-2dc5-438b-8d4e-63dfacd6f3cf",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/demo/api/bookings/6aab8828-2dc5-438b-8d4e-63dfacd6f3cf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"bookings",
+								"6aab8828-2dc5-438b-8d4e-63dfacd6f3cf"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Oct 2025 00:44:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "http://localhost:9090/demo/api/cottages/suggestions?requiredPlaces=6&requiredBedrooms=3&maxLakeDistanceMeters=150&maxCit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/demo/api/cottages/suggestions?requiredPlaces=6&requiredBedrooms=3&maxLakeDistanceMeters=150&maxCityDistanceMeters=6000&startDay=10.07.2025&requiredDays=5&maxStartShiftDays=2&bookerName=Mushfiqul&city=Jyväskylä",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"demo",
+						"api",
+						"cottages",
+						"suggestions"
+					],
+					"query": [
+						{
+							"key": "requiredPlaces",
+							"value": "6"
+						},
+						{
+							"key": "requiredBedrooms",
+							"value": "3"
+						},
+						{
+							"key": "maxLakeDistanceMeters",
+							"value": "150"
+						},
+						{
+							"key": "maxCityDistanceMeters",
+							"value": "6000"
+						},
+						{
+							"key": "startDay",
+							"value": "10.07.2025"
+						},
+						{
+							"key": "requiredDays",
+							"value": "5"
+						},
+						{
+							"key": "maxStartShiftDays",
+							"value": "2"
+						},
+						{
+							"key": "bookerName",
+							"value": "Mushfiqul"
+						},
+						{
+							"key": "city",
+							"value": "Jyväskylä"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:9090/demo/api/cottages/suggestions?requiredPlaces=6&requiredBedrooms=3&maxLakeDistanceMeters=150&maxCit",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/demo/api/cottages/suggestions?requiredPlaces=6&requiredBedrooms=3&maxLakeDistanceMeters=150&maxCityDistanceMeters=6000&startDay=10.07.2025&requiredDays=5&maxStartShiftDays=2&bookerName=Mushfiqul&city=Jyväskylä",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"cottages",
+								"suggestions"
+							],
+							"query": [
+								{
+									"key": "requiredPlaces",
+									"value": "6"
+								},
+								{
+									"key": "requiredBedrooms",
+									"value": "3"
+								},
+								{
+									"key": "maxLakeDistanceMeters",
+									"value": "150"
+								},
+								{
+									"key": "maxCityDistanceMeters",
+									"value": "6000"
+								},
+								{
+									"key": "startDay",
+									"value": "10.07.2025"
+								},
+								{
+									"key": "requiredDays",
+									"value": "5"
+								},
+								{
+									"key": "maxStartShiftDays",
+									"value": "2"
+								},
+								{
+									"key": "bookerName",
+									"value": "Mushfiqul"
+								},
+								{
+									"key": "city",
+									"value": "Jyväskylä"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Oct 2025 01:29:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bookerName\": \"Mushfiqul\",\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-08\",\n        \"endDate\": \"2025-07-13\"\n    },\n    {\n        \"bookerName\": \"Mushfiqul\",\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-09\",\n        \"endDate\": \"2025-07-14\"\n    },\n    {\n        \"bookerName\": \"Mushfiqul\",\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-10\",\n        \"endDate\": \"2025-07-15\"\n    },\n    {\n        \"bookerName\": \"Mushfiqul\",\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-11\",\n        \"endDate\": \"2025-07-16\"\n    },\n    {\n        \"bookerName\": \"Mushfiqul\",\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-12\",\n        \"endDate\": \"2025-07-17\"\n    }\n]"
+				},
+				{
+					"name": "http://localhost:9090/demo/api/cottages/suggestions?requiredPlaces=6&requiredBedrooms=3&maxLakeDistanceMeters=150&maxCit",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/demo/api/cottages/suggestions?requiredPlaces=6&requiredBedrooms=3&maxLakeDistanceMeters=150&maxCityDistanceMeters=6000&startDay=10.07.2025&requiredDays=5&maxStartShiftDays=2&city=Jyväskylä",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"cottages",
+								"suggestions"
+							],
+							"query": [
+								{
+									"key": "requiredPlaces",
+									"value": "6"
+								},
+								{
+									"key": "requiredBedrooms",
+									"value": "3"
+								},
+								{
+									"key": "maxLakeDistanceMeters",
+									"value": "150"
+								},
+								{
+									"key": "maxCityDistanceMeters",
+									"value": "6000"
+								},
+								{
+									"key": "startDay",
+									"value": "10.07.2025"
+								},
+								{
+									"key": "requiredDays",
+									"value": "5"
+								},
+								{
+									"key": "maxStartShiftDays",
+									"value": "2"
+								},
+								{
+									"key": "city",
+									"value": "Jyväskylä"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Oct 2025 01:29:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-08\",\n        \"endDate\": \"2025-07-13\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-09\",\n        \"endDate\": \"2025-07-14\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-10\",\n        \"endDate\": \"2025-07-15\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-11\",\n        \"endDate\": \"2025-07-16\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-12\",\n        \"endDate\": \"2025-07-17\"\n    }\n]"
+				},
+				{
+					"name": "http://localhost:9090/demo/api/cottages/suggestions?requiredPlaces=6&requiredBedrooms=3&maxLakeDistanceMeters=150&maxCit",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/demo/api/cottages/suggestions?requiredPlaces=6&requiredBedrooms=3&maxLakeDistanceMeters=150&maxCityDistanceMeters=6000&startDay=10.07.2025&requiredDays=5&maxStartShiftDays=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"demo",
+								"api",
+								"cottages",
+								"suggestions"
+							],
+							"query": [
+								{
+									"key": "requiredPlaces",
+									"value": "6"
+								},
+								{
+									"key": "requiredBedrooms",
+									"value": "3"
+								},
+								{
+									"key": "maxLakeDistanceMeters",
+									"value": "150"
+								},
+								{
+									"key": "maxCityDistanceMeters",
+									"value": "6000"
+								},
+								{
+									"key": "startDay",
+									"value": "10.07.2025"
+								},
+								{
+									"key": "requiredDays",
+									"value": "5"
+								},
+								{
+									"key": "maxStartShiftDays",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Oct 2025 01:29:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-08\",\n        \"endDate\": \"2025-07-13\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C006\",\n        \"address\": \"12 Birch Grove, Korpilahti, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage06.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 120,\n        \"cityName\": \"Korpilahti\",\n        \"distanceToCity\": 0,\n        \"startDate\": \"2025-07-08\",\n        \"endDate\": \"2025-07-13\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C007\",\n        \"address\": \"12 Birch Grove, Korpilahti, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage06.jpg\",\n        \"capacity\": 8,\n        \"numberOfBedrooms\": 4,\n        \"distanceToLake\": 150,\n        \"cityName\": \"Kuopio\",\n        \"distanceToCity\": 0,\n        \"startDate\": \"2025-07-08\",\n        \"endDate\": \"2025-07-13\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-09\",\n        \"endDate\": \"2025-07-14\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C006\",\n        \"address\": \"12 Birch Grove, Korpilahti, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage06.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 120,\n        \"cityName\": \"Korpilahti\",\n        \"distanceToCity\": 0,\n        \"startDate\": \"2025-07-09\",\n        \"endDate\": \"2025-07-14\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C007\",\n        \"address\": \"12 Birch Grove, Korpilahti, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage06.jpg\",\n        \"capacity\": 8,\n        \"numberOfBedrooms\": 4,\n        \"distanceToLake\": 150,\n        \"cityName\": \"Kuopio\",\n        \"distanceToCity\": 0,\n        \"startDate\": \"2025-07-09\",\n        \"endDate\": \"2025-07-14\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-10\",\n        \"endDate\": \"2025-07-15\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C006\",\n        \"address\": \"12 Birch Grove, Korpilahti, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage06.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 120,\n        \"cityName\": \"Korpilahti\",\n        \"distanceToCity\": 0,\n        \"startDate\": \"2025-07-10\",\n        \"endDate\": \"2025-07-15\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C007\",\n        \"address\": \"12 Birch Grove, Korpilahti, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage06.jpg\",\n        \"capacity\": 8,\n        \"numberOfBedrooms\": 4,\n        \"distanceToLake\": 150,\n        \"cityName\": \"Kuopio\",\n        \"distanceToCity\": 0,\n        \"startDate\": \"2025-07-10\",\n        \"endDate\": \"2025-07-15\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-11\",\n        \"endDate\": \"2025-07-16\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C006\",\n        \"address\": \"12 Birch Grove, Korpilahti, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage06.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 120,\n        \"cityName\": \"Korpilahti\",\n        \"distanceToCity\": 0,\n        \"startDate\": \"2025-07-11\",\n        \"endDate\": \"2025-07-16\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C007\",\n        \"address\": \"12 Birch Grove, Korpilahti, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage06.jpg\",\n        \"capacity\": 8,\n        \"numberOfBedrooms\": 4,\n        \"distanceToLake\": 150,\n        \"cityName\": \"Kuopio\",\n        \"distanceToCity\": 0,\n        \"startDate\": \"2025-07-11\",\n        \"endDate\": \"2025-07-16\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C001\",\n        \"address\": \"123 Lake Road, Jyväskylä, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage01.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 50,\n        \"cityName\": \"Jyväskylä\",\n        \"distanceToCity\": 5000,\n        \"startDate\": \"2025-07-12\",\n        \"endDate\": \"2025-07-17\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C006\",\n        \"address\": \"12 Birch Grove, Korpilahti, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage06.jpg\",\n        \"capacity\": 6,\n        \"numberOfBedrooms\": 3,\n        \"distanceToLake\": 120,\n        \"cityName\": \"Korpilahti\",\n        \"distanceToCity\": 0,\n        \"startDate\": \"2025-07-12\",\n        \"endDate\": \"2025-07-17\"\n    },\n    {\n        \"bookerName\": null,\n        \"cottageID\": \"C007\",\n        \"address\": \"12 Birch Grove, Korpilahti, Finland\",\n        \"imageURL\": \"https://example.com/images/cottage06.jpg\",\n        \"capacity\": 8,\n        \"numberOfBedrooms\": 4,\n        \"distanceToLake\": 150,\n        \"cityName\": \"Kuopio\",\n        \"distanceToCity\": 0,\n        \"startDate\": \"2025-07-12\",\n        \"endDate\": \"2025-07-17\"\n    }\n]"
+				}
+			]
+		}
+	]
+}
