@@ -145,7 +145,7 @@ function displayResults(suggestions, bookerName) {
         
         html += `
             <div class="cottage-card">
-                <img src="${IMG_BASE_URL}"+"/"+"${suggestion.imageURL}" 
+                <img src="${IMG_BASE_URL}/${suggestion.imageURL}" 
                      alt="Cottage ${suggestion.cottageID}" 
                      class="cottage-image" 
                      onerror="this.src='https://via.placeholder.com/400x220/3498db/ffffff?text=Cottage+Image'">
@@ -204,6 +204,11 @@ function displayResults(suggestions, bookerName) {
                         <span class="info-label">Duration:</span>
                         <span class="info-value">${calculateDuration(suggestion.startDate, suggestion.endDate)} nights</span>
                     </div>
+                    
+                    <button class="book-btn" onclick="bookCottage('${suggestion.cottageID}', '${suggestion.startDate}', '${suggestion.endDate}', '${bookerName}', '${bookingNumber}')">
+                        <span class="book-btn-text">📅 Book This Cottage</span>
+                        <span class="book-btn-loader" style="display: none;">Booking...</span>
+                    </button>
                 </div>
             </div>
         `;
@@ -213,6 +218,70 @@ function displayResults(suggestions, bookerName) {
     
     // Smooth scroll to results
     document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/**
+ * Book a cottage - sends POST request to backend
+ */
+function bookCottage(cottageID, startDate, endDate, bookerName, bookingNumber) {
+    // Find the button that was clicked
+    const allButtons = document.querySelectorAll('.book-btn');
+    let clickedButton = null;
+    allButtons.forEach(btn => {
+        if (btn.onclick.toString().includes(cottageID) && 
+            btn.onclick.toString().includes(startDate)) {
+            clickedButton = btn;
+        }
+    });
+    
+    if (!clickedButton) return;
+    
+    // Disable the button and show loading state
+    clickedButton.disabled = true;
+    clickedButton.querySelector('.book-btn-text').style.display = 'none';
+    clickedButton.querySelector('.book-btn-loader').style.display = 'inline-block';
+    
+    // Prepare booking data
+    const bookingData = {
+        cottageID: cottageID,
+        bookerName: bookerName,
+        bookingNumber: bookingNumber,
+        startDate: startDate,
+        endDate: endDate
+    };
+    
+    // Send POST request to backend
+    fetch(`${API_BASE_URL}/cottages/book`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Show success message
+        alert(`✅ Booking Successful!\n\nCottage ID: ${cottageID}\nBooking Number: ${bookingNumber}\nBooker: ${bookerName}\nCheck-in: ${formatDateForDisplay(startDate)}\nCheck-out: ${formatDateForDisplay(endDate)}\n\nThis cottage is now booked for these dates!`);
+        
+        // Change button to show it's booked
+        clickedButton.innerHTML = '✅ Booked Successfully';
+        clickedButton.style.background = 'linear-gradient(135deg, #27ae60 0%, #229954 100%)';
+        clickedButton.disabled = true;
+    })
+    .catch(error => {
+        console.error('Error booking cottage:', error);
+        alert(`❌ Booking Failed!\n\nError: ${error.message}\n\nPlease make sure:\n1. Your backend server is running\n2. The booking endpoint is correctly configured\n3. Try again in a moment`);
+        
+        // Re-enable the button
+        clickedButton.disabled = false;
+        clickedButton.querySelector('.book-btn-text').style.display = 'inline-block';
+        clickedButton.querySelector('.book-btn-loader').style.display = 'none';
+    });
 }
 
 /**
