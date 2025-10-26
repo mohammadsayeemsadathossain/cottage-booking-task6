@@ -1,6 +1,7 @@
 // Backend API Configuration
 // Change this URL to match your backend server location
-const API_BASE_URL = 'http://localhost:8080/demo2/api';
+const API_BASE_URL = 'http://localhost:9090/demo/api';
+const IMG_BASE_URL = 'http://localhost:9090/demo/images';
 
 /**
  * Main function called when user clicks "Search Available Cottages"
@@ -144,7 +145,7 @@ function displayResults(suggestions, bookerName) {
         
         html += `
             <div class="cottage-card">
-                <img src="${suggestion.imageURL}" 
+                <img src="${IMG_BASE_URL}"+"/"+"${suggestion.imageURL}" 
                      alt="Cottage ${suggestion.cottageID}" 
                      class="cottage-image" 
                      onerror="this.src='https://via.placeholder.com/400x220/3498db/ffffff?text=Cottage+Image'">
