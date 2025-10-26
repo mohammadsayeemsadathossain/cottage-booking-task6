@@ -204,6 +204,11 @@ function displayResults(suggestions, bookerName) {
                         <span class="info-label">Duration:</span>
                         <span class="info-value">${calculateDuration(suggestion.startDate, suggestion.endDate)} nights</span>
                     </div>
+                    
+                    <button class="book-btn" onclick="bookCottage('${suggestion.cottageID}', '${suggestion.startDate}', '${suggestion.endDate}', '${bookerName}', '${bookingNumber}')">
+                        <span class="book-btn-text">📅 Book This Cottage</span>
+                        <span class="book-btn-loader" style="display: none;">Booking...</span>
+                    </button>
                 </div>
             </div>
         `;
@@ -213,6 +218,79 @@ function displayResults(suggestions, bookerName) {
     
     // Smooth scroll to results
     document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/**
+ * Book a cottage - sends POST request to backend
+ */
+function bookCottage(cottageID, startDate, endDate, bookerName, bookingNumber) {
+    // Find the button that was clicked
+    const allButtons = document.querySelectorAll('.book-btn');
+    let clickedButton = null;
+    allButtons.forEach(btn => {
+        if (btn.onclick.toString().includes(cottageID) && 
+            btn.onclick.toString().includes(startDate)) {
+            clickedButton = btn;
+        }
+    });
+    
+    if (!clickedButton) return;
+    
+    // Disable the button and show loading state
+    clickedButton.disabled = true;
+    clickedButton.querySelector('.book-btn-text').style.display = 'none';
+    clickedButton.querySelector('.book-btn-loader').style.display = 'inline-block';
+    
+    // Calculate number of days between start and end date
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const diffTime = Math.abs(end - start);
+    const requiredDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    // Prepare booking data in the format expected by backend
+    // Backend expects: bookerName, cottageID, startDay (DD.MM.YYYY), requiredDays
+    const bookingData = {
+        bookerName: bookerName,
+        cottageID: cottageID,
+        startDay: formatDateForBackend(startDate),
+        requiredDays: requiredDays
+    };
+    
+    // Send POST request to backend
+    fetch(`${API_BASE_URL}/bookings`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Backend returns: bookingNumber, bookerName, cottageID, startDate, endDate
+        const actualBookingNumber = data.bookingNumber || bookingNumber;
+        
+        // Show success message
+        alert(`✅ Booking Successful!\n\nBooking Number: ${actualBookingNumber}\nCottage ID: ${cottageID}\nBooker: ${bookerName}\nCheck-in: ${formatDateForDisplay(startDate)}\nCheck-out: ${formatDateForDisplay(endDate)}\nDuration: ${requiredDays} nights\n\nThis cottage is now booked for these dates!`);
+        
+        // Change button to show it's booked
+        clickedButton.innerHTML = '✅ Booked Successfully';
+        clickedButton.style.background = 'linear-gradient(135deg, #27ae60 0%, #229954 100%)';
+        clickedButton.disabled = true;
+    })
+    .catch(error => {
+        console.error('Error booking cottage:', error);
+        alert(`❌ Booking Failed!\n\nError: ${error.message}\n\nPlease make sure:\n1. Your backend server is running on port 9090\n2. The booking endpoint is correctly configured\n3. The cottage is still available\n4. Try again in a moment`);
+        
+        // Re-enable the button
+        clickedButton.disabled = false;
+        clickedButton.querySelector('.book-btn-text').style.display = 'inline-block';
+        clickedButton.querySelector('.book-btn-loader').style.display = 'none';
+    });
 }
 
 /**

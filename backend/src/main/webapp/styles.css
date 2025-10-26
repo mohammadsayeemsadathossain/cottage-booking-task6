@@ -240,6 +240,42 @@ input::placeholder {
     box-shadow: 0 3px 10px rgba(39, 174, 96, 0.3);
 }
 
+/* BOOKING BUTTON STYLES */
+.book-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+}
+
+.book-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(230, 126, 34, 0.5);
+    background: linear-gradient(135deg, #d35400 0%, #e67e22 100%);
+}
+
+.book-btn:active {
+    transform: translateY(0);
+}
+
+.book-btn:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.book-btn-loader {
+    display: inline-block;
+}
+
 .error-message {
     background: #fee;
     color: #c00;
