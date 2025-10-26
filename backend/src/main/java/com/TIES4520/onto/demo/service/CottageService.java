@@ -170,6 +170,7 @@ public class CottageService {
 	            "  }\n" +
 	            "}\n";
 
+	        System.out.println("Suggession Query: " + sparql);
 	        Repository repo = getrepo();
 	        try (RepositoryConnection conn = repo.getConnection()) {
 	            TupleQuery q = conn.prepareTupleQuery(QueryLanguage.SPARQL, sparql);

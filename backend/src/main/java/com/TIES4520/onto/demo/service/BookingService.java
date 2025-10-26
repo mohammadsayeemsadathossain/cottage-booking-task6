@@ -66,6 +66,8 @@ public class BookingService {
 
         String cottageIri;
         Repository repo = getrepo();
+        System.out.println("Cottage list before booking: " + findCottageIri);
+        
         try (RepositoryConnection conn = repo.getConnection()) {
             TupleQuery tq = conn.prepareTupleQuery(QueryLanguage.SPARQL, findCottageIri);
             try (TupleQueryResult rs = tq.evaluate()) {
@@ -109,6 +111,7 @@ public class BookingService {
             "      :endDate   \"" + eStr + "\"^^xsd:date .\n" +               // <-- typed literal
             "}";
 
+        System.out.println("Insert booking: " + insert);
         try (RepositoryConnection conn = repo.getConnection()) {
             conn.prepareUpdate(QueryLanguage.SPARQL, insert, "").execute();
         }
