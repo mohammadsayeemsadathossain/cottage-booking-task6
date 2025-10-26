@@ -1,7 +1,7 @@
 // Backend API Configuration
 // Change this URL to match your backend server location
-const API_BASE_URL = 'http://localhost:9090/demo/api';
-const IMG_BASE_URL = 'http://localhost:9090/demo/images';
+const API_BASE_URL = 'http://localhost:8080/demo2/api';
+const IMG_BASE_URL = 'http://localhost:8080/demo2/images';
 
 /**
  * Main function called when user clicks "Search Available Cottages"
@@ -241,17 +241,23 @@ function bookCottage(cottageID, startDate, endDate, bookerName, bookingNumber) {
     clickedButton.querySelector('.book-btn-text').style.display = 'none';
     clickedButton.querySelector('.book-btn-loader').style.display = 'inline-block';
     
-    // Prepare booking data
+    // Calculate number of days between start and end date
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const diffTime = Math.abs(end - start);
+    const requiredDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    // Prepare booking data in the format expected by backend
+    // Backend expects: bookerName, cottageID, startDay (DD.MM.YYYY), requiredDays
     const bookingData = {
-        cottageID: cottageID,
         bookerName: bookerName,
-        bookingNumber: bookingNumber,
-        startDate: startDate,
-        endDate: endDate
+        cottageID: cottageID,
+        startDay: formatDateForBackend(startDate),
+        requiredDays: requiredDays
     };
     
     // Send POST request to backend
-    fetch(`${API_BASE_URL}/cottages/book`, {
+    fetch(`${API_BASE_URL}/bookings`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -265,8 +271,11 @@ function bookCottage(cottageID, startDate, endDate, bookerName, bookingNumber) {
         return response.json();
     })
     .then(data => {
+        // Backend returns: bookingNumber, bookerName, cottageID, startDate, endDate
+        const actualBookingNumber = data.bookingNumber || bookingNumber;
+        
         // Show success message
-        alert(`✅ Booking Successful!\n\nCottage ID: ${cottageID}\nBooking Number: ${bookingNumber}\nBooker: ${bookerName}\nCheck-in: ${formatDateForDisplay(startDate)}\nCheck-out: ${formatDateForDisplay(endDate)}\n\nThis cottage is now booked for these dates!`);
+        alert(`✅ Booking Successful!\n\nBooking Number: ${actualBookingNumber}\nCottage ID: ${cottageID}\nBooker: ${bookerName}\nCheck-in: ${formatDateForDisplay(startDate)}\nCheck-out: ${formatDateForDisplay(endDate)}\nDuration: ${requiredDays} nights\n\nThis cottage is now booked for these dates!`);
         
         // Change button to show it's booked
         clickedButton.innerHTML = '✅ Booked Successfully';
@@ -275,7 +284,7 @@ function bookCottage(cottageID, startDate, endDate, bookerName, bookingNumber) {
     })
     .catch(error => {
         console.error('Error booking cottage:', error);
-        alert(`❌ Booking Failed!\n\nError: ${error.message}\n\nPlease make sure:\n1. Your backend server is running\n2. The booking endpoint is correctly configured\n3. Try again in a moment`);
+        alert(`❌ Booking Failed!\n\nError: ${error.message}\n\nPlease make sure:\n1. Your backend server is running on port 9090\n2. The booking endpoint is correctly configured\n3. The cottage is still available\n4. Try again in a moment`);
         
         // Re-enable the button
         clickedButton.disabled = false;
