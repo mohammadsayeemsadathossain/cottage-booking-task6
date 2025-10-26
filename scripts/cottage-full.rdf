@@ -132,7 +132,7 @@
 	<rdf:type rdf:resource="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#Cottage"/>
 	<cottageID xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">C001</cottageID>
 	<address xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">123 Lake Road, Jyväskylä, Finland</address>
-	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">https://example.com/images/cottage01.jpg</imageURL>
+	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">cottage01.jpg</imageURL>
 	<capacity xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</capacity>
 	<numberOfBedrooms xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</numberOfBedrooms>
 	<distanceToLake xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</distanceToLake>
@@ -156,7 +156,7 @@
 	<rdf:type rdf:resource="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#Cottage"/>
 	<cottageID xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">C002</cottageID>
 	<address xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">456 Forest Path, Muurame, Finland</address>
-	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">https://example.com/images/cottage02.jpg</imageURL>
+	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">cottage02.jpg</imageURL>
 	<capacity xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</capacity>
 	<numberOfBedrooms xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</numberOfBedrooms>
 	<distanceToLake xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</distanceToLake>
@@ -180,7 +180,7 @@
 	<rdf:type rdf:resource="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#Cottage"/>
 	<cottageID xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">C003</cottageID>
 	<address xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">789 Mountain View, Laukaa, Finland</address>
-	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">https://example.com/images/cottage03.jpg</imageURL>
+	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">cottage03.jpg</imageURL>
 	<capacity xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</capacity>
 	<numberOfBedrooms xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</numberOfBedrooms>
 	<distanceToLake xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</distanceToLake>
@@ -204,7 +204,7 @@
 	<rdf:type rdf:resource="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#Cottage"/>
 	<cottageID xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">C004</cottageID>
 	<address xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">321 Riverside Lane, Jyväskylä, Finland</address>
-	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">https://example.com/images/cottage04.jpg</imageURL>
+	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">cottage04.jpg</imageURL>
 	<capacity xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</capacity>
 	<numberOfBedrooms xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</numberOfBedrooms>
 	<distanceToLake xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</distanceToLake>
@@ -228,7 +228,7 @@
 	<rdf:type rdf:resource="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#Cottage"/>
 	<cottageID xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">C005</cottageID>
 	<address xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">654 Sunset Boulevard, Hankasalmi, Finland</address>
-	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">https://example.com/images/cottage05.jpg</imageURL>
+	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">cottage05.jpg</imageURL>
 	<capacity xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</capacity>
 	<numberOfBedrooms xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</numberOfBedrooms>
 	<distanceToLake xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</distanceToLake>
@@ -252,7 +252,7 @@
 	<rdf:type rdf:resource="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#Cottage"/>
 	<cottageID xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">C006</cottageID>
 	<address xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">12 Birch Grove, Korpilahti, Finland</address>
-	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">https://example.com/images/cottage06.jpg</imageURL>
+	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">cottage06.jpg</imageURL>
 	<capacity xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</capacity>
 	<numberOfBedrooms xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</numberOfBedrooms>
 	<distanceToLake xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</distanceToLake>
@@ -273,7 +273,7 @@
 	<rdf:type rdf:resource="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#Cottage"/>
 	<cottageID xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">C007</cottageID>
 	<address xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">12 Birch Grove, Korpilahti, Finland</address>
-	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">https://example.com/images/cottage06.jpg</imageURL>
+	<imageURL xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#">cottage06.jpg</imageURL>
 	<capacity xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</capacity>
 	<numberOfBedrooms xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</numberOfBedrooms>
 	<distanceToLake xmlns="http://localhost:8080/cottageBooking/onto/CottageOntology.owl#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</distanceToLake>
