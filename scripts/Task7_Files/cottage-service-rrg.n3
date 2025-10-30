@@ -8,12 +8,16 @@
 # Echo the invocation values in the Subject, and attach the matched cottages in the same RDF document.
 res:cottageBookingService
   rdf:type sswap:Resource ;
+   sswap:providedBy res:provider ;
+  sswap:name "Cottage Booking Search Service (domain-only)" ;
+  sswap:oneLineDescription "Find cottages by city/capacity/bedrooms/distances and propose bookings for requested dates." ;
   sswap:operatesOn [
     rdf:type sswap:Graph ;
     sswap:hasMapping [
       rdf:type sswap:Subject , cf:Cottage ;
 
-      # ------- ECHOED FILTERS FROM THE INVOCATION -------
+      # ------- FILTERS FROM THE INVOCATION -------
+	  cf:bookerName				"Alice";
       cf:requiredPlaces          "4" ;
       cf:requiredBedrooms        "2" ;
       cf:maxLakeDistanceMeters   "200" ;
@@ -26,6 +30,7 @@ res:cottageBookingService
         rdf:type sswap:Object , cf:Cottage
         # The actual result cottages are listed below as separate resources.
 	cf:cottageID         "C001" ;
+	cf:bookerName		 "Alice";
   	cf:address           "123 Lake Road, Jyväskylä, Finland" ;
   	cf:imageURL          "cottage01.jpg" ;
   	cf:capacity          "6" ;
@@ -38,7 +43,8 @@ res:cottageBookingService
       sswap:mapsTo [
         rdf:type sswap:Object , cf:Cottage
         # The actual result cottages are listed below as separate resources.
-  	cf:cottageID         "C004" ;
+  	cf:bookerName		"Alice";
+	cf:cottageID         "C004" ;
   	cf:address           "321 Riverside Lane, Jyväskylä, Finland" ;
   	cf:imageURL          "cottage04.jpg" ;
   	cf:capacity          "5" ;

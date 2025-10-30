@@ -9,26 +9,27 @@
 
 res:cottageBookingService
   rdf:type sswap:Resource ;
+  sswap:providedBy res:provider ;
+  sswap:name "Cottage Booking add Service (domain-only)" ;
+  sswap:oneLineDescription "Book cottages by given detail." ;
   sswap:operatesOn [
     rdf:type sswap:Graph ;
     sswap:hasMapping [
-      rdf:type sswap:Subject , cf:Cottage ;
+      rdf:type sswap:Subject , cf:Booking ;
 
-      # ------- ECHOED FILTERS FROM THE INVOCATION -------
       cf:bookerName    "Alice" ;
       cf:cottageID     "C004" ;
       cf:startDay      "2025-11-10" ;
       cf:requiredDays  "5" ;
 
       sswap:mapsTo [
-        rdf:type sswap:Object , cf:Cottage
+        rdf:type sswap:Object , cf:Booking
         # Results listed below…
-	cf:booking "OK"
+		cf:bookerName    "Alice" ;
+        cf:cottageID     "C004" ;
+        cf:startDay      "2025-11-10" ;
+        cf:requiredDays  "5" ;
+	    cf:booking "OK"
       ]
     ]
-  ] .
-
-# -------- Result cottage (from your individuals) + created booking --------
-data:Cottage04 a cf:Cottage ;
-
   ] .

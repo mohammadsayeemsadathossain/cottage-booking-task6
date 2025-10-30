@@ -20,6 +20,7 @@ res:cottageBookingService
 
       # ------- FILTERS (placeholders) -------
 
+	  cf:bookerName		"";
       #Required number of places
       cf:requiredPlaces "" ;
 
@@ -42,7 +43,7 @@ res:cottageBookingService
       cf:maxStartShiftDays "" ;
 
       sswap:mapsTo [
-        # ------- RESULTS (matched cottages; bookings will be attached under cf:hasBooking) -------
+	  # Add all output variables with empty values.
         rdf:type sswap:Object , cf:Cottage
       ]
     ]

@@ -11,16 +11,14 @@
 res:cottageBookingService
   rdf:type sswap:Resource ;
   sswap:providedBy res:provider ;
-  sswap:name "Cottage Booking Search Service (domain-only)" ;
-  sswap:oneLineDescription "Find cottages by city/capacity/bedrooms/distances and propose bookings for requested dates." ;
+  sswap:name "Cottage Booking add Service (domain-only)" ;
+  sswap:oneLineDescription "Book cottages by given detail." ;
   sswap:operatesOn [
     rdf:type sswap:Graph ;
     sswap:hasMapping [
-      rdf:type sswap:Subject , cf:Cottage ;
+      rdf:type sswap:Subject , cf:Booking ;
 
-      # ------- FILTERS (placeholders) -------
-
-      # Name of Booker
+	# Name of Booker
       cf:bookerName "" ;
 
       # The Cottage Unique ID
@@ -33,8 +31,7 @@ res:cottageBookingService
       cf:requiredDays "" ;
 
       sswap:mapsTo [
-        # ------- RESULTS (matched cottages; bookings will be attached under cf:hasBooking) -------
-        rdf:type sswap:Object , cf:Cottage
+        rdf:type sswap:Object , cf:Booking
       ]
     ]
   ] .

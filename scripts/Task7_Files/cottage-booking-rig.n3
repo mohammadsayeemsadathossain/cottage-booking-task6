@@ -4,21 +4,22 @@
 @prefix data:  <http://localhost:8080/cottageBooking/data/cottage#> .
 @prefix res:   <http://localhost:8080/CottageService/> .
 
-# RIG — fill concrete input values (edit the literals as needed)
 # Example: book "C004" for Alice, starting 2025-11-10 for 5 days
 res:cottageBookingService
   rdf:type sswap:Resource ;
+  sswap:providedBy res:provider ;
+  sswap:name "Cottage Booking add Service (domain-only)" ;
+  sswap:oneLineDescription "Book cottages by given detail." ;
   sswap:operatesOn [
     rdf:type sswap:Graph ;
     sswap:hasMapping [
-      rdf:type sswap:Subject , cf:Cottage ;
+      rdf:type sswap:Subject , cf:Booking ;
 
-      # ------- FILLED FILTERS (exactly the same properties as your RDG) -------
       cf:bookerName    "Alice" ;
       cf:cottageID     "C004" ;
       cf:startDay      "2025-11-10" ;
       cf:requiredDays  "5" ;
 
-      sswap:mapsTo [ rdf:type sswap:Object , cf:Cottage ]
+      sswap:mapsTo [ rdf:type sswap:Object , cf:Booking ]
     ]
   ] .

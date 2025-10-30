@@ -8,12 +8,14 @@
 # (Edit the literal values to the query you want to run.)
 res:cottageBookingService
   rdf:type sswap:Resource ;
+   sswap:providedBy res:provider ;
+  sswap:name "Cottage Booking Search Service (domain-only)" ;
+  sswap:oneLineDescription "Find cottages by city/capacity/bedrooms/distances and propose bookings for requested dates." ;
   sswap:operatesOn [
     rdf:type sswap:Graph ;
     sswap:hasMapping [
       rdf:type sswap:Subject , cf:Cottage ;
-
-      # ------- FILLED FILTERS (edit as needed) -------
+	  cf:bookerName				"Alice";
       cf:requiredPlaces          "4" ;
       cf:requiredBedrooms        "2" ;
       cf:maxLakeDistanceMeters   "200" ;
