@@ -1,0 +1,34 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sswap: <http://sswapmeet.sswap.info/sswap/> .
+@prefix cf:    <http://localhost:8080/cottageBooking/onto/CottageOntology.owl#> .
+@prefix data:  <http://localhost:8080/cottageBooking/data/cottage#> .
+@prefix res:   <http://localhost:8080/CottageService/> .
+
+# RRG — echo the request values in the Subject, and add the matched cottage + proposed booking
+# Using Cottage04 from your individuals file (no booking shown there, so it's a good example).
+
+res:cottageBookingService
+  rdf:type sswap:Resource ;
+  sswap:operatesOn [
+    rdf:type sswap:Graph ;
+    sswap:hasMapping [
+      rdf:type sswap:Subject , cf:Cottage ;
+
+      # ------- ECHOED FILTERS FROM THE INVOCATION -------
+      cf:bookerName    "Alice" ;
+      cf:cottageID     "C004" ;
+      cf:startDay      "2025-11-10" ;
+      cf:requiredDays  "5" ;
+
+      sswap:mapsTo [
+        rdf:type sswap:Object , cf:Cottage
+        # Results listed below…
+	cf:booking "OK"
+      ]
+    ]
+  ] .
+
+# -------- Result cottage (from your individuals) + created booking --------
+data:Cottage04 a cf:Cottage ;
+
+  ] .
