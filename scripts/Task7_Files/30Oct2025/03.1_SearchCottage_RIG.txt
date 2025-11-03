@@ -18,15 +18,15 @@ res:searchCottageService
     sswap:hasMapping [
       rdf:type sswap:Subject , cf:SearchReq ;
 
-      cf:bookerName          "" ;
-      cf:numberOfPeople      "" ;
-      cf:numberOfBedrooms    "" ;
-	  cf:cityName			 "" ;
-      cf:maxDistanceFromLake "" ;
-      cf:nearestCity         "" ;
-      cf:numberOfDays        "" ;
-      cf:startDate           "" ;
-      cf:possibleShift       "" ;
+      cf:bookerName          "Alice" ;
+      cf:numberOfPeople      "4" ;
+      cf:numberOfBedrooms    "2" ;
+	  cf:cityName			 "Jyväskylä" ;
+      cf:maxDistanceFromLake "200" ;
+      cf:nearestCity         "6000" ;
+      cf:numberOfDays        "4" ;
+      cf:startDate           "2025-11-10" ;
+      cf:possibleShift       "1" ;
 
       sswap:mapsTo [
         rdf:type sswap:Object , cf:SearchResp ;
@@ -37,11 +37,11 @@ res:searchCottageService
         cf:cottageID         "" ;
         cf:cottageName       "" ;
         cf:cottageAddress    "" ;
+		cf:cityName			 "" ;
         cf:imageURL          "" ;
         cf:capacity          "" ;
         cf:numberOfBedrooms  "" ;
         cf:distanceFromLake  "" ;
-        cf:cityName          "" ;
         cf:cityDistance      "" ;
         cf:bookingStartDate  "" ;
         cf:bookingEndDate    "" ;

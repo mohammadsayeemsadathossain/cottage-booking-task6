@@ -18,21 +18,21 @@ res:cottageBookingService
     sswap:hasMapping [
       rdf:type sswap:Subject , cf:BookingReq ;
 
-      cf:bookerName   "" ;
-	  cf:bookingNumber	  "" ;
-      cf:cottageID    "" ;
-      cf:startDay     "" ;
-      cf:requiredDays "" ;
+      cf:bookerName   "Alice" ;
+	  cf:bookingID	  "BB0101" ;
+      cf:cottageID    "C004" ;
+      cf:startDay     "2025-11-10" ;
+      cf:requiredDays "4" ;
 
       sswap:mapsTo [
         rdf:type sswap:Object , cf:BookingResp ;
 
-        cf:bookerName   "" ;
-		cf:bookingNumber "" ;
-        cf:cottageID    "" ;
-        cf:startDay     "" ;
-        cf:requiredDays "" ;
-        cf:bookingStatus "";
+        cf:bookerName   "Alice" ;
+		cf:bookingID	"BB0101" ;
+        cf:cottageID    "C004" ;
+        cf:startDay     "2025-11-10" ;
+        cf:requiredDays "4" ;
+        cf:bookingStatus "OK";
       ]
     ]
   ] .

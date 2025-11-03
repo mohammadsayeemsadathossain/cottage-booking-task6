@@ -78,10 +78,8 @@ cf:Booking a <http://www.w3.org/2002/07/owl#Class> .
 
 cf:Cottage a <http://www.w3.org/2002/07/owl#Class> .
 
+# New Classes for API
 
-#################################################################
-# New Classes
-#################################################################
 cf:SearchReq a owl:Class ;
     rdfs:label "Search Request" ;
     rdfs:comment "Input structure for searching cottages." .
@@ -98,9 +96,8 @@ cf:BookingResp a owl:Class ;
     rdfs:label "Booking Response" ;
     rdfs:comment "Output structure returned after booking a cottage." .
 
-#################################################################
 # New Datatype Properties
-#################################################################
+
 cf:bookerName a owl:DatatypeProperty .
 cf:numberOfPeople a owl:DatatypeProperty .
 cf:numberOfBedrooms a owl:DatatypeProperty .
@@ -126,9 +123,7 @@ cf:startDay a owl:DatatypeProperty .
 cf:bookingStatus a owl:DatatypeProperty .
 
 
-#################################################################
 # Search service data structures
-#################################################################
 
 # Input properties (domain = SearchReq)
 cf:numberOfPeople a owl:DatatypeProperty ;
@@ -161,7 +156,7 @@ cf:possibleShift a owl:DatatypeProperty ;
 
 # Output properties (domain = SearchResp)
 cf:bookingNumber a owl:DatatypeProperty ;
-    rdfs:domain cf:SearchResp ;
+    rdfs:domain cf:SearchResp, SearchReq, cf:BookingReq , cf:BookingResp ;
     rdfs:range xsd:string .
 
 cf:cottageName a owl:DatatypeProperty ;
@@ -201,9 +196,7 @@ cf:bookingEndDate a owl:DatatypeProperty ;
     rdfs:range xsd:date .
 
 
-#################################################################
 # Booking service data structures
-#################################################################
 
 cf:bookerName a owl:DatatypeProperty ;
     rdfs:domain cf:BookingReq , cf:BookingResp, cf:SearchReq, cf:SearchResp ;
