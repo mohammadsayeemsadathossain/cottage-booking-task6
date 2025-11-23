@@ -98,7 +98,7 @@ cf:BookingResp a owl:Class ;
 
 # New Datatype Properties
 
-cf:bookerName a owl:DatatypeProperty .
+# cf:bookerName a owl:DatatypeProperty .
 cf:numberOfPeople a owl:DatatypeProperty .
 cf:numberOfBedrooms a owl:DatatypeProperty .
 cf:maxDistanceFromLake a owl:DatatypeProperty .
